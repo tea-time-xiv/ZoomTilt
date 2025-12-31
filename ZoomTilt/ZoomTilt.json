@@ -6,5 +6,6 @@
   "RepoUrl": "https://github.com/Tenrys/ZoomTilt",
   "InternalName": "ZoomTilt",
   "ApplicableVersion": "any",
+  "DalamudApiLevel": 14,
   "Tags": ["zoom", "tilt", "camera"]
 }

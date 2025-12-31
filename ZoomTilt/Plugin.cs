@@ -3,7 +3,6 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Interface.Windowing;
 using ZoomTilt.Windows;
-using Dalamud.Game;
 using FFXIVClientStructs.FFXIV.Client.UI.Misc;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Config;
@@ -31,8 +30,6 @@ namespace ZoomTilt {
       public static ICommandManager CommandManager { get; private set; } = null!;
       [PluginService]
       public static IFramework Framework { get; private set; } = null!;
-      [PluginService]
-      public static ISigScanner SigScanner { get; private set; } = null!;
       [PluginService]
       public static IChatGui Chat { get; private set; } = null!;
       [PluginService]
