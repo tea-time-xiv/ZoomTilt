@@ -11,7 +11,6 @@ using FFXIVClientStructs.FFXIV.Client.Game.Control;
 
 namespace ZoomTilt {
   public sealed unsafe class Plugin : IDalamudPlugin {
-    public string Name => "ZoomTilt";
     private const string CommandName = "/zoomtilt";
 
     public Configuration Configuration { get; init; }

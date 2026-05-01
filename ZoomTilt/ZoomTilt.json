@@ -3,9 +3,9 @@
   "Name": "ZoomTilt",
   "Punchline": "Change 3rd person camera angle depending on camera zoom.",
   "Description": "Change the 3rd person camera angle character config setting depending how zoomed in you are.\nZoom out, and you will be able to see more of the world. Zoom in, the camera will be focused on your character.",
-  "RepoUrl": "https://github.com/Tenrys/ZoomTilt",
+  "RepoUrl": "https://github.com/tea-time-xiv/ZoomTilt",
   "InternalName": "ZoomTilt",
   "ApplicableVersion": "any",
-  "DalamudApiLevel": 14,
+  "DalamudApiLevel": 15,
   "Tags": ["zoom", "tilt", "camera"]
 }

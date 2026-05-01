@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Dalamud.NET.Sdk/14.0.1">
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
   <PropertyGroup>
     <Authors>Tenrys</Authors>
-    <Version>1.0.0.5</Version>
+    <Version>1.0.0.6</Version>
     <Description>Change 3rd person camera angle depending on camera zoom.</Description>
-    <PackageProjectUrl>https://github.com/Tenrys/ZoomTilt</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/tea-time-xiv/ZoomTilt</PackageProjectUrl>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <None Remove="..\Data\icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ZoomTilt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
