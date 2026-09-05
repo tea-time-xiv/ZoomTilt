@@ -2,7 +2,7 @@
 <Project Sdk="Dalamud.NET.Sdk/15.0.0">
   <PropertyGroup>
     <Authors>Tenrys</Authors>
-    <Version>1.0.0.7</Version>
+    <Version>1.0.0.8</Version>
     <Description>Change 3rd person camera angle depending on camera zoom.</Description>
     <PackageProjectUrl>https://github.com/tea-time-xiv/ZoomTilt</PackageProjectUrl>
     <IsPackable>false</IsPackable>
