@@ -10,7 +10,7 @@ Repo-local git config is already set to match:
 | Key | Value |
 | --- | --- |
 | `user.name` | `Tea Time` |
-| `user.email` | `280381899+tea-time-xiv@users.noreply.github.com` |
+| `user.email` | `tea-time-13371235@proton.me` |
 | `user.signingkey` | `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFqHd1J/694PW/UAg1ZDORWqJR0H9M6syx8bwzjXbf1` (1Password: "GitHub - TT - Sign") |
 | `gpg.format` | `ssh` |
 | `commit.gpgsign` | `true` |
@@ -38,17 +38,30 @@ is `master`.
 
 ## Releases
 
-`.github/workflows/build.yml` releases automatically on every push to
-`master`: it reads `<Version>` from `ZoomTilt/ZoomTilt.csproj`, skips if the
-tag `v<Version>` already exists, and otherwise builds `ZoomTilt.zip`, creates
-the release, and pushes an updated entry to `tea-time-xiv/pluginmaster`.
+Publishing is split between two repos and neither holds a credential for the other.
 
-- Bumping `<Version>` in the csproj is what triggers a release. Bump it only
-  when a release is intended.
-- The `DalamudApiLevel` written to the plugin repo is hardcoded in the
-  workflow's `Update pluginmaster` step; update it alongside an SDK bump.
-- The root `pluginmaster.json` is a leftover from upstream and is no longer
-  read by anything. Do not bother updating it.
+This repo, via `.github/workflows/build.yml` on a push to `master`: reads `<Version>`
+from `ZoomTilt/ZoomTilt.csproj`, skips if the tag `v<Version>` already exists, and
+otherwise builds `ZoomTilt.zip`, lifts the matching section out of `CHANGELOG.md`, and
+publishes a release tagged `v<Version>` with that section as the notes.
 
-Record every user-visible change under `## [Unreleased]` in `CHANGELOG.md`,
-then move those entries into a versioned section when cutting a release.
+`tea-time-xiv/pluginmaster`, via its own scheduled workflow: every 15 minutes it reads
+this repo's latest stable release, takes `ZoomTilt.json` **from inside the zip**, lifts
+the `## <version>` section out of `CHANGELOG.md` at the release tag, and regenerates
+`pluginmaster.json`. Nothing here pushes to it. A new release shows up in game within
+15 minutes, or immediately via
+`gh workflow run publish.yml -R tea-time-xiv/pluginmaster`.
+
+What follows from that:
+
+- Bumping `<Version>` in the csproj is what triggers a release. Bump it only when a
+  release is intended.
+- `ZoomTilt/ZoomTilt.json` is the single source of truth for the listing text and
+  `DalamudApiLevel`. Editing it is how the installer entry changes; do not look for
+  those values in a workflow.
+- Every version needs its own `## <version>` section in `CHANGELOG.md` before merge.
+  The build fails without one, on pull requests too. That section is what players read
+  in `/xlplugins` -> Changelog, and Dalamud renders it as plain text, so keep it to
+  short `-` bullets.
+- Do not reintroduce a step that writes to the pluginmaster repo from here. That was
+  the old pattern; it raced the generator and needed a cross-repo token.
