@@ -13,6 +13,14 @@ The version is the `<Version>` property of `ZoomTilt/ZoomTilt.csproj`, released 
 
 Nothing yet.
 
+## 1.0.0.7
+
+- Fixed a crash that could take down the game when the camera was not available,
+  such as at the title screen or while changing zone.
+- Fixed the third person camera angle being written from an invalid value while
+  zoom is locked, which could leave the setting corrupted.
+- Stopped leaving the settings window drawing hooked up after the plugin unloads.
+
 ## 1.0.0.6
 
 - Updated for Dalamud API level 15.
