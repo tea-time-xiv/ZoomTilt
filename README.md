@@ -18,7 +18,9 @@ I hacked this together by looking at code from [Cammy](https://github.com/Unknow
 
 Add this URL to your list of Custom Plugin Repositories, and install the plugin using the plugin browser.
 
-`https://raw.githubusercontent.com/Tenrys/ZoomTilt/master/pluginmaster.json`
+`https://raw.githubusercontent.com/tea-time-xiv/pluginmaster/master/pluginmaster.json`
+
+That repository lists every Tea Time plugin, not just this one.
 
 You can type `/zoomtilt` in the chat to open the settings window, the plugin will work on its own.
 
