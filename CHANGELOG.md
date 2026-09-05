@@ -13,6 +13,14 @@ The version is the `<Version>` property of `ZoomTilt/ZoomTilt.csproj`, released 
 
 Nothing yet.
 
+## 1.0.0.8
+
+- Reworked the zoom to tilt curve, from upstream. The camera now holds a level
+  angle over the first part of the zoom range and eases up across the rest, so
+  zooming right in sits behind the character rather than tilted.
+- Because of that, a Min Zoom Tilt above 0 no longer applies at the very closest
+  zoom, where the tilt is now always 0.
+
 ## 1.0.0.7
 
 - Fixed a crash that could take down the game when the camera was not available,
